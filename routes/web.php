@@ -35,6 +35,10 @@ Route::group(['middleware' => ['web']], function () {
     return view('welcome');
 	})->name('login');
 
+	Route::get('/create', function () {
+    return view('create');
+	})->name('create');
+
 	Route::get('/account', [
     'uses' => 'UserController@getAccount',
     'as' => 'account'
@@ -71,5 +75,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/edit', [
     'uses' => 'PostController@postEditPost',
     'as' => 'edit'
+	]);
+
+	Route::post('/like', [
+		'uses' => 'PostController@postLikePost',
+    	'as' => 'like'
 	]);
 });
