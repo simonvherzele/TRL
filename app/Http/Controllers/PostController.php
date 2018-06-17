@@ -14,11 +14,13 @@ class PostController extends Controller
     }
     public function postCreatePost(Request $request)
     {
-        $this->validate($request, [
-            'body' => 'required|max:1000'
-        ]);
+        //$this->validate($request, [
+        //    'body' => 'required|max:1000'
+        //]);
         $post = new Post();
         $post->body = $request['body'];
+        $post->lat = $request['lat'];
+        $post->lng = $request['lng'];
         $message = 'There was an error';
         if ($request->user()->posts()->save($post)) {
             $message = 'Post successfully created!';

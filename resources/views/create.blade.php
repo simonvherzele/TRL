@@ -13,15 +13,15 @@
 		<div class="col-md-6 col-md-offset-3">
 			<header><h3>Show me a cool place!</h3></header>
 			<form action="{{ route('post.create') }}" method="post">
-				<div id="map">hey</div>
+				<div id="map"></div>
 				<div class="form-group">
-					<input type="text" id="lat" readonly="yes">
+					<input class="form-control" type="text" id="lat" readonly="yes" name="lat">
 				</div>
 				<div class="form-group">
-					<input type="text" id="lng" readonly="yes">					
+					<input class="form-control" type="text" id="lng" readonly="yes" name="lng">					
 				</div>
 				<div class="form-group">
-					<textarea class="form-control" name="body" id="new-post" rows="5" placeholder="wazzuuup"></textarea>
+					<textarea class="form-control" name="body" id="new-post" rows="5" placeholder="Describe this place"></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Create Post</button>
 				<input type="hidden" value="{{ Session::token() }}" name="_token">
