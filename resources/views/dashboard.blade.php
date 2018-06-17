@@ -13,7 +13,7 @@
 	@include('includes.message-block')
 	<section class="row posts">
 		<div class="col-md-6 col-md-offset-3">
-			<header><h3>What other people say...</h3></header>
+			<header><h3>Check out these spots...</h3></header>
 			
 			@foreach($posts as $post)
 				<article class="post" data-postid="{{ $post->id }}">
@@ -44,12 +44,27 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
+      var positions = <?php echo json_encode( $posts ) ?>;
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 51.0281407, lng: 4.4790396},
           zoom: 12
         });
+        for(var i = 0; i < positions.length; i++)
+        {
+        
+            var lat = positions[i].lat;
+            var lon = positions[i].lng;
+            var name = positions[i].body;
+            //window.alert(lat);
+
+            var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lon) });
+            marker.setMap(map);
+
+            var infoWindow = new google.maps.InfoWindow({ content: name });
+            infoWindow.open(map, marker);
+        }
         infoWindow = new google.maps.InfoWindow;
 
 
@@ -63,12 +78,15 @@
             };
 
             infoWindow.setPosition(pos);
-            map.setCenter(pos);
+            /*map.setCenter(pos);
             var marker = new google.maps.Marker({
             position: pos,
             map: map,
             title: 'Hello World!'
-        });
+            });*/
+
+
+
 
            
           }, function() {
@@ -80,6 +98,8 @@
         }
       }
 
+      
+
 
       
 
@@ -90,6 +110,10 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+      
+
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqcPcmHc5-sb5PnxW97xomgaHRrSWHpNI&callback=initMap">
