@@ -1,0 +1,39 @@
+body{
+	background-image:url(../img/coverfoto1.jpg);
+
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.kader{
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;	
+	border-color: #CBBEA0;
+	border-radius: 0px;
+	border-width: 5px;
+}
+#logo{
+
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.btn-brown{
+	border-color: #CBBEA0;
+	background-color: white;
+	border-radius: 0px;
+	border-width: 5px;
+	color: #392F1D;
+	text-transform: uppercase;
+}
+.btn-brown:hover{
+	background-color:#CBBEA0;
+	color: #392F1D;
+}
+
+.UPC{
+	text-transform: uppercase;
+}
