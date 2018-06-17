@@ -1,7 +1,8 @@
 @extends('layouts.master')
 <style>
       #map {
-        height: 50%;
+        height: 500px;
+        width: 800px;
       }
     </style>
 

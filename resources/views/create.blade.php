@@ -21,6 +21,9 @@
 					<input class="form-control" type="text" id="lng" readonly="yes" name="lng">					
 				</div>
 				<div class="form-group">
+					<input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+				</div>
+				<div class="form-group">
 					<textarea class="form-control" name="body" id="new-post" rows="5" placeholder="Describe this place"></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Create Post</button>
