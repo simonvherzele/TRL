@@ -27,7 +27,7 @@
 
 
 <a id="register-form-link" href="" class="float-right btn btn-brown">Register</a>
-<h5 class="card-title mb-4 mt-1 UPC">Sign in</h5>
+<h5 class="card-title mb-4 mt-1 text-uppercase">Sign in</h5>
      <form action="{{ route('signin') }}" method="post">
     <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}">
         <label for="email">Your Email</label>
@@ -44,7 +44,7 @@
     </div> <!-- checkbox .// -->
     </div> <!-- form-group// -->  
     <div class="form-group">
-        <button type="submit" class="btn btn-brown btn-block ">Login<img id="arrow" src="{{ asset('img/arrow.png') }}"></button>
+        <button type="submit" class="btn btn-brown btn-block ">Login<img class="arrow" src="{{ asset('img/arrow.png') }}"></button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
         <br>
   <!-- error message -->
@@ -58,7 +58,7 @@
 <div id="register-form" class="card kader" style="width: 20rem; display: none;">
 <article class="card-body">
 <a id="login-form-link" href="" class="float-right btn btn-brown">Sign in</a>
-<h5 class="card-title mb-4 mt-1 UPC">Register</h5>
+<h5 class="card-title mb-4 mt-1 text-uppercase">Register</h5>
      <form action="{{ route('signup') }}" method="post">
     <div class="form-group  {{$errors->has('email') ? 'has-error' : '' }}">
         <label for="email">Your email</label>
@@ -75,7 +75,7 @@
     <div class="form-group"> 
     </div> <!-- form-group// -->  
     <div class="form-group">
-        <button type="submit" class="btn btn-brown btn-block"> Register me <img id="arrow" src="{{ asset('img/arrow.png') }}"></button>
+        <button type="submit" class="btn btn-brown btn-block"> Register me <img class="arrow" src="{{ asset('img/arrow.png') }}"></button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
     </div> <!-- form-group// -->                                                           
 </form>

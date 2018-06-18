@@ -2,7 +2,7 @@
 <footer class="page-footer font-small unique-color-dark mt-4 baronder">
 
   <div class="baronder">
-    <div class="container">
+    <div class="container ">
       <div class="row d-flex align-items-center ">
       </div>
       <!-- Grid row-->

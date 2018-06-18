@@ -33,11 +33,7 @@ body{
 	background-color:#CBBEA0;
 	color: #392F1D;
 }
-
-.UPC{
-	text-transform: uppercase;
-}
-#arrow{
+.arrow{
 	width: 50px;
 	position: relative;
 	left: 40px;

@@ -42,9 +42,7 @@
 }
 
 #logonav{
-
 	width: 50%;
-	
 }
 
 .barboven{
@@ -80,4 +78,7 @@ body{
 	color: #CBBEA0;
 }
 
-
+.arrow{
+	width: 50px;
+	margin-left: 20px;
+}
