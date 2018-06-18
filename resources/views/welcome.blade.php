@@ -44,7 +44,7 @@
     </div> <!-- checkbox .// -->
     </div> <!-- form-group// -->  
     <div class="form-group">
-        <button type="submit" class="btn btn-brown btn-block ">Login</button>
+        <button type="submit" class="btn btn-brown btn-block ">Login<img id="arrow" src="{{ asset('img/arrow.png') }}"></button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
         <br>
   <!-- error message -->
@@ -75,7 +75,7 @@
     <div class="form-group"> 
     </div> <!-- form-group// -->  
     <div class="form-group">
-        <button type="submit" class="btn btn-brown btn-block"> Register me </button>
+        <button type="submit" class="btn btn-brown btn-block"> Register me <img id="arrow" src="{{ asset('img/arrow.png') }}"></button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
     </div> <!-- form-group// -->                                                           
 </form>

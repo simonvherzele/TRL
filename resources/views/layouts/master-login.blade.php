@@ -2,16 +2,11 @@
 <html>
 <head>
 	<title>@yield('title')</title>
-<!-- Bootstrap oude versie-->
-	<!--
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	-->
-	
 
-<!-- bootstrap nieuwere versie -->
+	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-
+	<!-- eigen css -->
 	<link rel="stylesheet" href="{{ URL::to('css/login.css') }}">
 
 	<script

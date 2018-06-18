@@ -1,27 +1,45 @@
 <header>
 	
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ route('dashboard') }}">The Roamers Life</a>
-    </div>
+<div class="barboven">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ route('create') }}">New Post</a></li>
-        <li><a href="{{ route('account') }}">Account</a></li>
-        <li><a href="{{ route('logout') }}">Logout</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<!-- bar boven -->
+<ul class="nav justify-content-end mt-3 mr-3">
+  <li class="justify-content-start">
+    <a href="{{ route('dashboard') }}">
+    <img id="logonav" src="{{ asset('img/logoklein.png') }}" ></a></li>
+  <li class="nav-item mr-3">
+    <a class="btn btn-brown" href="{{ route('create') }}"><img id="pin" src="{{ asset('img/pin.svg') }}">create pin</a>
+  </li>
+  <li class="nav-item">
+    <div class="dropdown">
+        <button class="btn btn-brown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <!-- hier moet de naam van de ingelogde komen -->
+            Joris Delvaux
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{{ route('account') }}">my profile</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="{{ route('logout') }}">log out</a>
+        </div>
+      </div> 
+  </li>
+</ul>
+
+
+</div>
+
+<!-- bar onder -->
+<nav class="navbar navbar-light mb-3 baronder">
+  <a class="navbar-brand">Discover awesome spots!</a>
+  <form class="form-inline">
+    <input class="form-control mr-3" type="search" placeholder="Search country, location, ..." aria-label="Search">
+    <button class="btn btn-brown my-2 my-sm-0" type="submit">Search </button>
+  </form>
 </nav>
+
+
+
+
 
 </header>
