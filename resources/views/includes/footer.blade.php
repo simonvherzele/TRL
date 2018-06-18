@@ -1,23 +1,21 @@
 <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark mt-4 baronder">
+<footer class="page-footer font-small baronder">
 
-  <div class="baronder">
+  <div class="baronder pt-2">
     <div class="container ">
       <div class="row d-flex align-items-center ">
       </div>
-      <!-- Grid row-->
-
     </div>
   </div>
 
   <!-- Footer Links -->
-  <div class="container text-center text-md-left mt-5 ">
+  <div class="container text-center text-md-left mt-6">
 
     <!-- Grid row -->
     <div class="row mt-3">
 
       <!-- Grid column -->
-      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
 
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold">The Roamer's Life</h6>
@@ -28,7 +26,7 @@
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
 
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Links</h6>
@@ -40,7 +38,7 @@
           <a class="text-secondary" href="{{ route('dashboard') }}">Dashboard</a>
         </p>
         <p>
-          <a class="text-secondary" href="{{ route('account') }}">Account</a>
+          <a class="text-secondary" href="#">Profile</a>
         </p>
         <p>
           <a class="text-secondary" href="http://www.trl.jorisdelvaux.be/" target="_BLANK">Official website</a>

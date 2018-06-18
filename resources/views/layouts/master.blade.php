@@ -9,6 +9,7 @@
 	<!-- eigen css -->
 	<link rel="stylesheet" href="{{ URL::to('css/main.css') }}">
 
+	<link rel="stylesheet" type="text/css" href="{{ URL::to('css/profile.css') }}">
 
 
 </head>
@@ -20,9 +21,7 @@
 	</div>
 
 
-
 @include('includes.footer')
-
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
 
@@ -32,6 +31,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="{{ URL::to('js/main.js') }}"></script>
+
+<!-- MDB Lightbox Init -->
+<!-- <script type="text/javascript">
+$(function () {
+    $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+});
+</script> -->
 
 
 </body>

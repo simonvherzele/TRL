@@ -1,10 +1,13 @@
-@extends('layouts.master')
+    @extends('layouts.master')
 
 @section('title')
     Account
 @endsection
 
 @section('content')
+<div class="container bg-white ml-7 mr-7">
+
+
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
             <header><h3>Your Account</h3></header>
@@ -28,5 +31,8 @@
                 <img src="{{ route('account.image', ['filename' => $user->username . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive">
             </div>
         </section>
+
+
+</div>
     @endif
 @endsection

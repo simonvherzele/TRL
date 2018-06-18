@@ -81,4 +81,7 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'PostController@postLikePost',
     	'as' => 'like'
 	]);
+	Route::get('/profile',function(){
+		return view('profile');
+	});
 });
