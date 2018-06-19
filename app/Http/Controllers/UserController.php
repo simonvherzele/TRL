@@ -46,6 +46,13 @@ class UserController extends Controller
     {
         return view('account', ['user' => Auth::user()]);
     }
+
+    public function getAccountHeader()
+    {
+        $user = Auth::user();
+        $name = $user->username;
+        return $name;
+    }
     public function postSaveAccount(Request $request)
     {
         $this->validate($request, [

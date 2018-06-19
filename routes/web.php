@@ -60,6 +60,12 @@ Route::group(['middleware' => ['web']], function () {
 		'middleware' => 'auth'
 	]);
 
+	Route::get('/profile', [
+		'uses' => 'PostController@getProfile',
+		'as' => 'profile',
+		'middleware' => 'auth'
+	]);
+
 	Route::post('/createpost', [
 		'uses' => 'PostController@postCreatePost',
 		'as' => 'post.create',
@@ -81,7 +87,5 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'PostController@postLikePost',
     	'as' => 'like'
 	]);
-	Route::get('/profile',function(){
-		return view('profile');
-	});
+	
 });

@@ -13,12 +13,10 @@
   <li class="nav-item">
     <div class="dropdown">
         <button class="btn btn-brown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-            <!-- hier moet de naam van de ingelogde komen -->
-            Joris Delvaux
+          {{ app('App\Http\Controllers\UserController')->getAccountHeader() }}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="">my profile</a>
+          <a class="dropdown-item" href="{{ route('profile') }}">my profile</a>
           <a class="dropdown-item" href="{{ route('account') }}">settings</a>
           <a class="dropdown-item" href="{{ route('logout') }}">log out</a>
         </div>
@@ -32,10 +30,6 @@
 <!-- bar onder -->
 <nav class="navbar navbar-light mb-3 baronder">
   <a class="navbar-brand">Discover awesome spots!</a>
-  <form class="form-inline">
-    <input class="form-control mr-3" type="search" placeholder="Search a location" aria-label="Search">
-    <button class="btn btn-brown my-2 my-sm-0" type="submit">Search </button>
-  </form>
 </nav>
 
 

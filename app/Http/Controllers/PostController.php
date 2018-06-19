@@ -12,6 +12,13 @@ class PostController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('dashboard', ['posts' => $posts]);
     }
+
+    public function getProfile()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('profile', ['posts' => $posts]);
+    }
+
     public function postCreatePost(Request $request)
     {
         //$this->validate($request, [

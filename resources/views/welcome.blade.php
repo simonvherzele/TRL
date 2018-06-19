@@ -34,7 +34,6 @@
         <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}">
     </div> <!-- form-group// -->
     <div class="form-group">
-        <a class="float-right text-secondary" href="#">Forgot?</a>
         <label for="password">Your password</label>
         <input class="form-control" type="password" name="password" id="password">
     </div> <!-- form-group// --> 

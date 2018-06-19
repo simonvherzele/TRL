@@ -12,23 +12,19 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="{{ asset('img/joris.jpg') }}" class="img-responsive" alt="">
+                    <img src="{{ route('account.image', ['filename' => Auth::user()->username . '-' . Auth::user()->id . '.jpg']) }}" alt="" class="img-responsive">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name">
-                        Joris Delvaux
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Designer - traveler
+                      {{ Auth::user()->username }} 
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
                 <div class="profile-userbuttons">
-                    <button type="button" class="btn  btn-brown">Follow</button>
-                    <button type="button" class="btn  btn-brown">Message</button>
+                    <a href="{{ route('account') }}"><button type="button" class="btn  btn-brown">Edit</button></a>
                 </div>
                 <!-- END SIDEBAR BUTTONS -->
             </div>
@@ -37,71 +33,29 @@
                 <h2> My pins</h2>
 
     
+    
+            <div class="col-md-12">
 
-    <div class="col-md-12">
-        <div class="row">
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(117).jpg" class="img-fluid">
-                </a>
-            </figure>
+               @foreach($posts->where('user_id',Auth::user()->id) as $post)
+                <article class="post" data-postid="{{ $post->id }}">
+                <p>{{ $post->body }}</p>
+                <div class="info">
+                    Posted by {{ $post->user->username }} on {{ $post->created_at }}
+                </div>
+                <div class="interaction">
+                    <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
+                        <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
+                    @if(Auth::user() == $post->user)
+                        |
+                        <a href="#" class="edit">Edit</a>
+                        |
+                        <a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a>
+                    @endif
+                </div>
+                </article>
+                @endforeach 
 
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(98).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(131).jpg" class="img-fluid" />
-                </a>
-
-            </figure>
-        </div>
-        <div class="row">
-
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(123).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(118).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(128).jpg" class="img-fluid" />
-                </a>
-            </figure>
-        </div>
-<div class="row">
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(132).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(115).jpg" class="img-fluid" />
-                </a>
-            </figure>
-
-            <figure class="col-md-4">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg" data-size="1600x1067">
-                    <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(133).jpg" class="img-fluid" />
-                </a>
-            </figure>
-        </div>
-
-        </div>
+            </div>
 
     </div>
 </div>
