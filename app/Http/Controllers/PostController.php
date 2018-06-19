@@ -4,7 +4,11 @@ use App\Like;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 class PostController extends Controller
 {
     public function getDashboard()
@@ -29,9 +33,14 @@ class PostController extends Controller
         $post->lat = $request['lat'];
         $post->lng = $request['lng'];
         $message = 'There was an error';
+        $photoName = Auth::User()->id .'-' . $request['body'] . "." .$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('img'), $photoName);
         if ($request->user()->posts()->save($post)) {
             $message = 'Post successfully created!';
         }
+
+        
+        
         return redirect()->route('dashboard')->with(['message' => $message]);
     }
     public function getDeletePost($post_id)

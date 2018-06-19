@@ -34,6 +34,7 @@
         			@foreach($posts as $post)
         			<article class="post" data-postid="{{ $post->id }}">
         				<p>{{ $post->body }}</p>
+                <img class="w-25" src="{!! '/img/'.$post->user_id.'-'.$post->body.'.jpeg' !!}" alt="new photo">
         				<div class="info">
         					Posted by {{ $post->user->username }} on {{ $post->created_at }}
         				</div>

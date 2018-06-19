@@ -54,6 +54,11 @@ Route::group(['middleware' => ['web']], function () {
     'as' => 'account.image'
 	]);
 
+	Route::get('/postimage/{filename}', [
+    'uses' => 'PostController@getPostImage',
+    'as' => 'post.image'
+	]);
+
 	Route::get('/dashboard', [
 		'uses' => 'PostController@getDashboard',
 		'as' => 'dashboard',

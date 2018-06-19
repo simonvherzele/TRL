@@ -16,7 +16,7 @@
 	<section class="row new-post">
 		<div class="col-md-6 col-md-offset-3">
 			<header><h3>Show me a cool place!</h3></header>
-			<form action="{{ route('post.create') }}" method="post">
+			<form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
 				<div id="map"></div>
 				<div class="form-group">
 					<input class="form-control d-none" type="text" id="lat" readonly="yes" name="lat">
@@ -26,18 +26,24 @@
 				</div>
 				<p class="font-weight-bold mt-5">Let others see how cool your place is</p>
 
-				<div class="custom-file">
-						<label class="custom-file-label" for="fileToUpload">Choose photo</label>
-  						<input type="file" class="custom-file-input form-control" name="fileToUpload" id="fileToUpload" >
-				</div>
+				 <div class="form-group">
+                    <label for="image">Photo (only .jpg)</label>
+                    <input type="file" name="image" class="form-control" id="image">
+                </div>
+
 				<div class="form-group mt-5">
 					<label for="body" class="font-weight-bold">Write a caption, or some tips for other hickers</label>
 					<textarea class="form-control" name="body" id="new-post" rows="5" placeholder="Describe this place"></textarea>
 				</div>
 
+				<div class="form-group mt-5">
+					<label for="shit" class="font-weight-bold">Write a caption, or some tips for other hickers</label>
+					<textarea class="form-control" name="shit" id="new-post" rows="5" placeholder="Describe this place"></textarea>
+				</div>
+
 
 				<div>
-				<p class="font-weight-bold mt-5">Choos a category</p>
+				<p class="font-weight-bold mt-5">Choose a category</p>
 	<div class="btn-group " data-toggle="buttons">
 		<label class="btn btn-dark mr-2">
 			<input type="checkbox" class="mr-2" >Beach
