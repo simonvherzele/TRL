@@ -81,10 +81,14 @@ body{
 	width: 50px;
 	margin-left: 20px;
 }
+
 .panel-heading a.active {
 color: #CBBEA0;
 background-color: #392F1D;
-
 }
+.panel-heading a:hover {
+border-color: #392F1D;
+}
+
 
 

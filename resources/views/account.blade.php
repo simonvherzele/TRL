@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container bg-white ml-7 mr-7">
+<div class="container bg-white ml-7 mr-7 mb-5">
 
 
     <section class="row new-post">
@@ -35,13 +35,14 @@
                 <img class="w-25" src="{{ route('account.image', ['filename' => $user->username . '-' . $user->id . '.jpg']) }}" alt="new photo">
             </div>
         </section>
+        @endif
        <button type="submit" class="btn btn-primary">Save Account</button>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
             </form>
         </div>
 
 </div>
-    @endif
+    
     </section>
    
 @endsection

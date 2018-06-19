@@ -1,34 +1,8 @@
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-
-<script type="text/javascript">$(function() {
-
-    $('#pins-link').click(function(e) {
-    $("#Postdiv").delay(100).fadeIn(100);
-    $("#Mapdiv").fadeOut(100);
-    $('#pins-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-  $('#map-link').click(function(e) {
-    $("#Mapdiv").delay(100).fadeIn(100);
-    $("#Postdiv").fadeOut(100);
-    $('#map-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-
-});
-</script>
-
-
 @extends('layouts.master')
 <style>
       #map {
         height: 500px;
-        width: 800px;
+        width: 100%;
       }
     </style>
 
@@ -37,9 +11,7 @@
 @endsection
 
 @section('content')
-<div class="container bg-white ml-7 mr-7">
-	@include('includes.message-block')
-
+@include('includes.message-block')
 <div class="panel-heading">
             <div class="row">
               <div class="col">
@@ -51,13 +23,12 @@
             </div>
             <hr>
           </div>
-
-
+<div class="container bg-white ml-7 mr-7 mb-5">
 
 
   <!-- posts (foto's) -->
-  <div id="Postdiv">
-  <header><h3>Check out these spots...</h3></header>
+  <div id="Postdiv" style="display: block;">
+  <header class="mb-5"><h3>Check out these spots...</h3></header>
 	<section class="row posts">
 		<div class="col-md-6 col-md-offset-3">
         			@foreach($posts as $post)
@@ -84,7 +55,7 @@
 
 
 <!-- map -->
-<div id="Mapdiv">
+<div id="Mapdiv" style="display: none;">
 	<section class="row posts">
 		<div id="map"></div>
     <script>

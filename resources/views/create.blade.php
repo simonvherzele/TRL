@@ -12,7 +12,7 @@
 @section('content')
 	@include('includes.message-block')
 
-<div class="container bg-white">
+<div class="container bg-white mb-5">
 	<section class="row new-post">
 		<div class="col-md-6 col-md-offset-3">
 			<header><h3>Show me a cool place!</h3></header>

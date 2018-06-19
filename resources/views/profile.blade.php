@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container bg-white ml-7 mr-7">
+<div class="container bg-white ml-7 mr-7 mb-5">
 <div class="container">
     <div class="row profile">
         <div class="col-md-3">
