@@ -33,7 +33,7 @@ class PostController extends Controller
         $post->lat = $request['lat'];
         $post->lng = $request['lng'];
         $message = 'There was an error';
-        $photoName = Auth::User()->id .'-' . $request['body'] . "." .$request->image->getClientOriginalExtension();
+        $photoName = $request['lat'] .'-' . $request['body'] . ".jpeg";
         $request->image->move(public_path('img'), $photoName);
         if ($request->user()->posts()->save($post)) {
             $message = 'Post successfully created!';

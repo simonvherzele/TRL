@@ -36,12 +36,6 @@
 					<textarea class="form-control" name="body" id="new-post" rows="5" placeholder="Describe this place"></textarea>
 				</div>
 
-				<div class="form-group mt-5">
-					<label for="shit" class="font-weight-bold">Write a caption, or some tips for other hickers</label>
-					<textarea class="form-control" name="shit" id="new-post" rows="5" placeholder="Describe this place"></textarea>
-				</div>
-
-
 				<div>
 				<p class="font-weight-bold mt-5">Choose a category</p>
 	<div class="btn-group " data-toggle="buttons">

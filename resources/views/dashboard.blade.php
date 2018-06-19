@@ -34,7 +34,7 @@
         			@foreach($posts as $post)
         			<article class="post" data-postid="{{ $post->id }}">
         				<p>{{ $post->body }}</p>
-                <img class="w-25" src="{!! '/img/'.$post->user_id.'-'.$post->body.'.jpeg' !!}" alt="new photo">
+                <img class="w-25" src="{!! '/img/'.$post->lat.'-'.$post->body.'.jpeg' !!}" alt="new photo">
         				<div class="info">
         					Posted by {{ $post->user->username }} on {{ $post->created_at }}
         				</div>
@@ -66,6 +66,8 @@
       // locate you.
       var positions = <?php echo json_encode( $posts ) ?>;
       var map, infoWindow;
+      var markers = [];
+      var infowindows = [];
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 51.0281407, lng: 4.4790396},
@@ -73,19 +75,24 @@
         });
         for(var i = 0; i < positions.length; i++)
         {
-        
             var lat = positions[i].lat;
             var lon = positions[i].lng;
             var name = positions[i].body;
-            //window.alert(lat);
 
-            var marker = new google.maps.Marker({ position: new google.maps.LatLng(lat, lon) });
-            marker.setMap(map);
+            markers[i] = new google.maps.Marker({ position: new google.maps.LatLng(lat, lon) });
+            markers[i].setMap(map);
+            markers[i].index = i;
 
-            var infoWindow = new google.maps.InfoWindow({ content: name });
-            infoWindow.open(map, marker);
+            infowindows[i] = new google.maps.InfoWindow({ content: "<div style='float:left;'><img src='/img/"+lat+"-"+name+".jpeg'width='150px'></div><div style='float:right';><p>"+name+"</p></div>"});
+            
+            
+            google.maps.event.addListener(markers[i], 'click', function() {
+              infowindows[this.index].open(map,markers[this.index]);
+              map.panTo(markers[this.index].getPosition());
+            });
+
         }
-        infoWindow = new google.maps.InfoWindow;
+
 
 
 
@@ -96,19 +103,7 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
-            infoWindow.setPosition(pos);
-            /*map.setCenter(pos);
-            var marker = new google.maps.Marker({
-            position: pos,
-            map: map,
-            title: 'Hello World!'
-            });*/
-
-
-
-
-           
+            map.setCenter(pos); 
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
