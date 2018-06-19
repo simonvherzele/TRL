@@ -32,12 +32,7 @@
 
 <script src="{{ URL::to('js/main.js') }}"></script>
 
-<!-- MDB Lightbox Init -->
-<!-- <script type="text/javascript">
-$(function () {
-    $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-});
-</script> -->
+
 
 
 </body>

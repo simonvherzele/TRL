@@ -17,22 +17,31 @@
                     <input type="text" name="username" class="form-control" value="{{ $user->username }}" id="username">
                 </div>
                 <div class="form-group">
-                    <label for="image">Image (only .jpg)</label>
+                    <label for="name">Real Name</label>
+                    <input type="text" name="name" class="form-control" value="Full Name" id="realname">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Some Keywords about you</label>
+                    <input type="text" name="bio" class="form-control" value="Fotography, travel, design, ..." id="bio">
+                </div>
+                <div class="form-group">
+                    <label for="image">Profile photo (only .jpg)</label>
                     <input type="file" name="image" class="form-control" id="image">
                 </div>
-                <button type="submit" class="btn btn-primary">Save Account</button>
+         
+         @if (Storage::disk('local')->has($user->username . '-' . $user->id . '.jpg'))
+        <section class="row new-post">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="w-25" src="{{ route('account.image', ['filename' => $user->username . '-' . $user->id . '.jpg']) }}" alt="new photo">
+            </div>
+        </section>
+       <button type="submit" class="btn btn-primary">Save Account</button>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
             </form>
         </div>
-    </section>
-    @if (Storage::disk('local')->has($user->username . '-' . $user->id . '.jpg'))
-        <section class="row new-post">
-            <div class="col-md-6 col-md-offset-3">
-                <img src="{{ route('account.image', ['filename' => $user->username . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive">
-            </div>
-        </section>
-
 
 </div>
     @endif
+    </section>
+   
 @endsection

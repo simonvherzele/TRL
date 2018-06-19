@@ -81,6 +81,10 @@ body{
 	width: 50px;
 	margin-left: 20px;
 }
-/* profiel page */
+.panel-heading a.active {
+color: #CBBEA0;
+background-color: #392F1D;
+
+}
 
 

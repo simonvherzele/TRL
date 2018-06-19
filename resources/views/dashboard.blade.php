@@ -1,3 +1,29 @@
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">$(function() {
+
+    $('#pins-link').click(function(e) {
+    $("#Postdiv").delay(100).fadeIn(100);
+    $("#Mapdiv").fadeOut(100);
+    $('#pins-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+  $('#map-link').click(function(e) {
+    $("#Mapdiv").delay(100).fadeIn(100);
+    $("#Postdiv").fadeOut(100);
+    $('#map-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+
+});
+</script>
+
+
 @extends('layouts.master')
 <style>
       #map {
@@ -11,33 +37,54 @@
 @endsection
 
 @section('content')
+<div class="container bg-white ml-7 mr-7">
 	@include('includes.message-block')
+
+<div class="panel-heading">
+            <div class="row">
+              <div class="col">
+                <a href="#" class="active btn-block btn btn-brown" id="pins-link">Browse by pins</a>
+              </div>
+              <div class="col">
+                <a href="#" id="map-link" class=" btn-block btn btn-brown">Browse on the map</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+
+
+
+
+  <!-- posts (foto's) -->
+  <div id="Postdiv">
+  <header><h3>Check out these spots...</h3></header>
 	<section class="row posts">
 		<div class="col-md-6 col-md-offset-3">
-			<header><h3>Check out these spots...</h3></header>
-			
-			@foreach($posts as $post)
-				<article class="post" data-postid="{{ $post->id }}">
-				<p>{{ $post->body }}</p>
-				<div class="info">
-					Posted by {{ $post->user->username }} on {{ $post->created_at }}
-				</div>
-				<div class="interaction">
-					<a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
-                        <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
-					@if(Auth::user() == $post->user)
-						|
-						<a href="#" class="edit">Edit</a>
-						|
-						<a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a>
-					@endif
-				</div>
-				</article>
-			@endforeach
-			
+        			@foreach($posts as $post)
+        			<article class="post" data-postid="{{ $post->id }}">
+        				<p>{{ $post->body }}</p>
+        				<div class="info">
+        					Posted by {{ $post->user->username }} on {{ $post->created_at }}
+        				</div>
+        				<div class="interaction">
+        					<a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
+                  <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
+        					@if(Auth::user() == $post->user)
+        						|
+        						<a href="#" class="edit">Edit</a>
+        						|
+        						<a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a>
+        					@endif
+        				</div>
+        			</article>
+        			@endforeach
 		</div>
 	</section>
+</div>
 
+
+<!-- map -->
+<div id="Mapdiv">
 	<section class="row posts">
 		<div id="map"></div>
     <script>
@@ -110,17 +157,18 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-      }
+      }</script>
 
-      
-
-
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqcPcmHc5-sb5PnxW97xomgaHRrSWHpNI&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqcPcmHc5-sb5PnxW97xomgaHRrSWHpNI&callback=initMap">
     </script>
 	</section>
 
+</div>
+</div>
+
+
+
+<!-- posts edit -->
  <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -149,4 +197,9 @@
 	var urlEdit = '{{ route('edit') }}';
 	var urlLike = '{{ route('like') }}';
 </script>
+
+
+
+
+
 @endsection
